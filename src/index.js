@@ -1,9 +1,12 @@
 // console.log('%c HI', 'color: firebrick')
 
-let ul = document.querySelector('#dog-breeds');
-const grabLi = document.getElementsByTagName('li')
+document.addEventListener('DOMContentLoaded', function(){
+    getDogPics();
+    getBreeds();
 
-document.addEventListener('DOMContentLoaded', getDogPics);
+});
+
+
 
 function getDogPics(){
     fetch('https://dog.ceo/api/breeds/image/random/4')
@@ -37,23 +40,28 @@ function getBreeds(){
 function renderBreed(breed){
     let ul = document.querySelector('#dog-breeds');
     const li = document.createElement('li');
+    let letter = document.querySelector('#breed-dropdown');
+
+    li.addEventListener('click', function(e){
+        e.target.style.color = 'red'
+    });
+    li.addEventListener('mouseover', function(e){
+        e.target.style.cursor = 'pointer'
+    })
+
     li.innerText = breed
     ul.appendChild(li)
+//changing below
+
+letter.addEventListener('change', function(e){
+    let listText = li.innerText;
+    let ul = document.querySelector('#dog-breeds');
+    if (e.target.value != listText.charAt(0)){
+        li.hidden = true
+    }
+    else {
+        li.hidden = false
+    }
+})
+    
 };
-
-getBreeds();
-
-const h1 = document.querySelector('h1')
-
-// h1.style.color = 'red'
-
-console.log(h1)
-
-// console.log(grabLi)
-
-// document.addEventListener('mouseover', function(){
-//     let ul = document.querySelector('#dog-breeds');
-//     ul.target.cursor = 'pointer'
-// })
-
-// document.getElementById('dog-breeds').style.cursor = 'pointer'
