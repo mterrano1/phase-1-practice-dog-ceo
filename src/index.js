@@ -1,5 +1,8 @@
 // console.log('%c HI', 'color: firebrick')
 
+let ul = document.querySelector('#dog-breeds');
+const grabLi = document.getElementsByTagName('li')
+
 document.addEventListener('DOMContentLoaded', getDogPics);
 
 function getDogPics(){
@@ -32,10 +35,25 @@ function getBreeds(){
 };
 
 function renderBreed(breed){
-    const ul = document.querySelector('#dog-breeds');
+    let ul = document.querySelector('#dog-breeds');
     const li = document.createElement('li');
     li.innerText = breed
     ul.appendChild(li)
 };
 
 getBreeds();
+
+const h1 = document.querySelector('h1')
+
+// h1.style.color = 'red'
+
+console.log(h1)
+
+// console.log(grabLi)
+
+// document.addEventListener('mouseover', function(){
+//     let ul = document.querySelector('#dog-breeds');
+//     ul.target.cursor = 'pointer'
+// })
+
+// document.getElementById('dog-breeds').style.cursor = 'pointer'
